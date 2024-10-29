@@ -19,6 +19,7 @@ Esta aplicación realizara una petición HTTP de tipo GET a una API que retorna 
 - ### Opossum
     > Se trata de una herramienta que nos permite implementar cortadores de circuitos (circuit breakers) en nuestras aplicaciones en node.js
 
+---
 # Proceso
 ## SERVIDOR EXPRESS
 ```JS
@@ -120,8 +121,22 @@ kubectl scale deployment node-app --replicas 3
 ```BASH
 KUBE_EDITOR="nano" kubectl edit service node-app
 ```
-<img src="">
+<img src="https://github.com/jhotwox/Kubernetes/blob/main/conf.png?raw=true">
 
+---
 # RESULTADOS
+### Pods replica
+> Podemos observar que actualmente hay 3 pods replica
+<img src="https://github.com/jhotwox/Kubernetes/blob/main/replicas.png?raw=true">
 
-<img src="">
+> Si eliminanos un pod observamos que al instante uno nuevo se crea
+><img src="https://github.com/jhotwox/Kubernetes/blob/main/creating_new_pod.png?raw=true">
+
+><img src="https://github.com/jhotwox/Kubernetes/blob/main/new_pod_runing.png?raw=true">
+
+### APP en ejecución
+> El servicio sigue activo
+><img src="https://github.com/jhotwox/Kubernetes/blob/main/200.png?raw=true">
+
+> El servicio no esta en linea por lo que pasamos al fallback
+><img src="https://github.com/jhotwox/Kubernetes/blob/main/error.png?raw=true">
